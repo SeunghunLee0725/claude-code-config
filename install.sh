@@ -52,11 +52,11 @@ with open('$CLAUDE_DIR/settings.json') as f:
 with open('$SCRIPT_DIR/settings.json') as f:
     new = json.load(f)
 
-# Merge permissions (union of allow, union of deny)
+# Merge permissions (union of allow, replace deny from new config)
 ep = existing.get('permissions', {})
 np = new.get('permissions', {})
 merged_allow = list(dict.fromkeys(ep.get('allow', []) + np.get('allow', [])))
-merged_deny  = list(dict.fromkeys(ep.get('deny', []) + np.get('deny', [])))
+merged_deny  = list(dict.fromkeys(np.get('deny', [])))
 
 # Merge top-level keys (new values win for non-permission keys)
 merged = {**existing, **new}
