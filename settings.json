@@ -1,4 +1,5 @@
 {
+  "skipDangerousModePermissionPrompt": true,
   "permissions": {
     "allow": [
       "Bash(git status*)",
@@ -81,7 +82,6 @@
       "Bash(git reset --hard origin/master*)",
       "Bash(git clean -fdx*)",
       "Bash(chmod -R 777 *)",
-      "Bash(:(){ :|:& };:*)",
       "Bash(mkfs *)",
       "Bash(dd if=* of=/dev/*)",
       "Bash(> /dev/sda*)",
